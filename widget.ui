@@ -52,7 +52,7 @@ QPushButton:hover{
     <number>0</number>
    </property>
    <item>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="current_expression">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -83,7 +83,7 @@ border:none;
 color:#999;</string>
      </property>
      <property name="text">
-      <string>7 x 8</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -94,7 +94,7 @@ color:#999;</string>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="main_input">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
        <horstretch>0</horstretch>
@@ -125,7 +125,7 @@ border:none;
 color:#fff;</string>
      </property>
      <property name="text">
-      <string>8965</string>
+      <string>0</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -160,6 +160,12 @@ color:#fff;</string>
        <property name="text">
         <string>x²</string>
        </property>
+       <property name="type" stdset="0">
+        <string>functional</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="3" column="1">
@@ -179,6 +185,12 @@ color:#fff;</string>
        <property name="text">
         <string>5</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="0" column="3">
@@ -208,6 +220,12 @@ color:#fff;</string>
          <height>32</height>
         </size>
        </property>
+       <property name="type" stdset="0">
+        <string>functional</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="2" column="2">
@@ -227,6 +245,12 @@ color:#fff;</string>
        <property name="text">
         <string>9</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="4" column="0">
@@ -246,6 +270,12 @@ color:#fff;</string>
        <property name="text">
         <string>1</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="4" column="2">
@@ -265,6 +295,12 @@ color:#fff;</string>
        <property name="text">
         <string>3</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="0" column="1">
@@ -284,6 +320,12 @@ color:#fff;</string>
        <property name="text">
         <string>CE</string>
        </property>
+       <property name="type" stdset="0">
+        <string>clear_input</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="1" column="0">
@@ -303,6 +345,12 @@ color:#fff;</string>
        <property name="text">
         <string>1/x</string>
        </property>
+       <property name="type" stdset="0">
+        <string>functional</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="5" column="3">
@@ -330,6 +378,12 @@ background-color:#959595;
        <property name="text">
         <string>=</string>
        </property>
+       <property name="type" stdset="0">
+        <string>equal_sign</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="0" column="0">
@@ -349,6 +403,12 @@ background-color:#959595;
        <property name="text">
         <string>%</string>
        </property>
+       <property name="type" stdset="0">
+        <string>operations</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="1" column="3">
@@ -376,6 +436,12 @@ background-color:#959595;
        <property name="text">
         <string>÷</string>
        </property>
+       <property name="type" stdset="0">
+        <string>operations</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="3" column="3">
@@ -403,6 +469,12 @@ background-color:#959595;
        <property name="text">
         <string>-</string>
        </property>
+       <property name="type" stdset="0">
+        <string>operations</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="5" column="0">
@@ -422,6 +494,12 @@ background-color:#959595;
        <property name="text">
         <string>+/-</string>
        </property>
+       <property name="type" stdset="0">
+        <string>functional</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="2" column="0">
@@ -441,6 +519,12 @@ background-color:#959595;
        <property name="text">
         <string>7</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="0" column="2">
@@ -460,6 +544,12 @@ background-color:#959595;
        <property name="text">
         <string>C</string>
        </property>
+       <property name="type" stdset="0">
+        <string>clear_all</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="5" column="1">
@@ -479,6 +569,12 @@ background-color:#959595;
        <property name="text">
         <string>0</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="4" column="3">
@@ -506,6 +602,12 @@ background-color:#959595;
        <property name="text">
         <string>+</string>
        </property>
+       <property name="type" stdset="0">
+        <string>operations</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="5" column="2">
@@ -525,6 +627,12 @@ background-color:#959595;
        <property name="text">
         <string>.</string>
        </property>
+       <property name="type" stdset="0">
+        <string>functional</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="3" column="2">
@@ -544,6 +652,12 @@ background-color:#959595;
        <property name="text">
         <string>6</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="2" column="3">
@@ -571,6 +685,12 @@ background-color:#959595;
        <property name="text">
         <string>×</string>
        </property>
+       <property name="type" stdset="0">
+        <string>operations</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="4" column="1">
@@ -590,6 +710,12 @@ background-color:#959595;
        <property name="text">
         <string>2</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="3" column="0">
@@ -609,6 +735,12 @@ background-color:#959595;
        <property name="text">
         <string>4</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="2" column="1">
@@ -628,6 +760,12 @@ background-color:#959595;
        <property name="text">
         <string>8</string>
        </property>
+       <property name="type" stdset="0">
+        <string>number</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item row="1" column="2">
@@ -647,6 +785,12 @@ background-color:#959595;
        <property name="text">
         <string>√x</string>
        </property>
+       <property name="type" stdset="0">
+        <string>functional</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
     </layout>
@@ -657,4 +801,7 @@ background-color:#959595;
   <include location="resourses.qrc"/>
  </resources>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>
