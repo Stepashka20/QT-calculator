@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>resourses/img/delete.svg</file>
+        <file>resourses/img/calculator.png</file>
     </qresource>
 </RCC>

@@ -7,7 +7,9 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(buttonWasClicked(QAbstractButton*)));
-
+    this->setWindowOpacity(0.95);
+    this->setWindowTitle("Калькулятор");
+    this->setWindowIcon(QIcon(":/resourses/img/calculator.png"));
 }
 
 Widget::~Widget()
