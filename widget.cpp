@@ -6,7 +6,8 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    connect(ui->buttonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(buttonWasClicked(QAbstractButton*)));
+    connect(ui->numbersButtonGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(number_was_clicked(QAbstractButton*)));
+    connect(ui->operationsButtonsGroup, SIGNAL(buttonClicked(QAbstractButton*)), this, SLOT(operation_pressed(QAbstractButton*)));
     this->setWindowOpacity(0.95);
     this->setWindowTitle("Калькулятор");
     this->setWindowIcon(QIcon(":/resourses/img/calculator.png"));
@@ -18,27 +19,7 @@ Widget::~Widget()
 }
 
 
-void Widget::buttonWasClicked(QAbstractButton* btn)
-{
-    qInfo() << btn->property("type").toString() ;
-    QString prop = btn->property("type").toString();
-    if (prop=="number"){
-        number_pressed(btn);
-    } else if (prop == "operations"){
-        operation_pressed(btn);
-    } else if (prop == "equal_sign"){
-        if (ui->current_expression->text()!=""){
-            print_result();
-            history_exists = false;
-        }
-    }else if (prop == "clear_all"){
-        ui->main_input->setText("0");
-        ui->current_expression->setText("");
-        history_exists = false;
-    }
-}
-
-void Widget::number_pressed(QAbstractButton *btn)
+void Widget::number_was_clicked(QAbstractButton* btn)
 {
     if (ui->main_input->text()=="0" && btn->text()=="0") return;
     if (equal_pressed){
@@ -52,10 +33,14 @@ void Widget::number_pressed(QAbstractButton *btn)
     if (next_clear_screen) next_clear_screen = false;
 
     ui->main_input->setText(ui->main_input->text()+btn->text());
+//    qInfo() << btn->property("type").toString() ;
+//    QString prop = btn->property("type").toString();
 }
+
 
 void Widget::operation_pressed(QAbstractButton *btn)
 {
+    if (ui->main_input->text().endsWith(".")) delete_last_character();
     qInfo() << history_exists;
     if (history_exists){
         double result = calculate_result();
@@ -94,4 +79,54 @@ void Widget::print_result()
 
 }
 
+void Widget::delete_last_character()
+{
+    QString str = ui->main_input->text();
+    str.chop(1);
+    ui->main_input->setText(str);
+}
+
+void Widget::on_equal_button_clicked()
+{
+    if (ui->main_input->text().endsWith(".")) delete_last_character();
+    if (ui->current_expression->text()!=""){
+        print_result();
+        history_exists = false;
+    }
+}
+
+
+void Widget::on_clear_all_button_clicked()
+{
+    ui->main_input->setText("0");
+    ui->current_expression->setText("");
+    history_exists = false;
+}
+
+
+void Widget::on_dot_button_clicked()
+{
+    if (!ui->main_input->text().contains(".")){
+        ui->main_input->setText(ui->main_input->text()+".");
+    }
+}
+
+
+void Widget::on_delete_last_number_button_clicked()
+{
+    if (ui->main_input->text().length()==1){
+        ui->main_input->setText("0");
+    } else {
+         delete_last_character();
+    }
+
+}
+
+
+void Widget::on_negate_button_clicked()
+{
+    if (ui->main_input->text().endsWith(".")) delete_last_character();
+    if (ui->main_input->text()!="0")
+        ui->main_input->setText("-"+ui->main_input->text());
+}
 

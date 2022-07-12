@@ -18,7 +18,6 @@ public:
 
 private:
    void number_pressed(QAbstractButton*btn);
-   void operation_pressed(QAbstractButton*btn);
    double calculate_result();
    void print_result();
    double result;
@@ -28,9 +27,15 @@ private:
    bool next_clear_screen = false;
    bool equal_pressed = false;
    bool waiting_for_operand = true;
-
+   void delete_last_character();
 private slots:
-    void buttonWasClicked(QAbstractButton*btn);
+    void number_was_clicked(QAbstractButton*btn);
+    void operation_pressed(QAbstractButton*btn);
+    void on_equal_button_clicked();
+    void on_clear_all_button_clicked();
+    void on_dot_button_clicked();
+    void on_delete_last_number_button_clicked();
+    void on_negate_button_clicked();
 
 private:
     Ui::Widget *ui;
