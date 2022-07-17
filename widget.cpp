@@ -33,15 +33,13 @@ void Widget::number_was_clicked(QAbstractButton* btn)
     if (next_clear_screen) next_clear_screen = false;
 
     ui->main_input->setText(ui->main_input->text()+btn->text());
-//    qInfo() << btn->property("type").toString() ;
-//    QString prop = btn->property("type").toString();
+
 }
 
 
 void Widget::operation_pressed(QAbstractButton *btn)
 {
-    if (ui->main_input->text().endsWith(".")) delete_last_character();
-    qInfo() << history_exists;
+    validate_input();
     if (history_exists){
         double result = calculate_result();
         ui->main_input->setText(QString::number(result));
@@ -86,9 +84,14 @@ void Widget::delete_last_character()
     ui->main_input->setText(str);
 }
 
-void Widget::on_equal_button_clicked()
+void Widget::validate_input()
 {
     if (ui->main_input->text().endsWith(".")) delete_last_character();
+}
+
+void Widget::on_equal_button_clicked()
+{
+    validate_input();
     if (ui->current_expression->text()!=""){
         print_result();
         history_exists = false;
@@ -125,8 +128,39 @@ void Widget::on_delete_last_number_button_clicked()
 
 void Widget::on_negate_button_clicked()
 {
-    if (ui->main_input->text().endsWith(".")) delete_last_character();
+    validate_input();
     if (ui->main_input->text()!="0")
         ui->main_input->setText("-"+ui->main_input->text());
+}
+
+
+
+void Widget::on_clear_maininput_btn_clicked()
+{
+    ui->main_input->setText("0");
+}
+
+
+void Widget::on_sqr_btn_clicked()
+{
+    validate_input();
+    double result = ui->main_input->text().toDouble()*ui->main_input->text().toDouble();
+    ui->main_input->setText(QString::number(result));
+}
+
+
+void Widget::on_inverse_btn_clicked()
+{
+    validate_input();
+    double result = 1.0/ui->main_input->text().toDouble();
+    ui->main_input->setText(QString::number(result));
+}
+
+
+void Widget::on_sqrt_btn_clicked()
+{
+    validate_input();
+    double result = sqrt(ui->main_input->text().toDouble());
+    ui->main_input->setText(QString::number(result));
 }
 

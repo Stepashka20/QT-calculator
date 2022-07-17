@@ -28,6 +28,7 @@ private:
    bool equal_pressed = false;
    bool waiting_for_operand = true;
    void delete_last_character();
+   void validate_input();
 private slots:
     void number_was_clicked(QAbstractButton*btn);
     void operation_pressed(QAbstractButton*btn);
@@ -36,6 +37,13 @@ private slots:
     void on_dot_button_clicked();
     void on_delete_last_number_button_clicked();
     void on_negate_button_clicked();
+    void on_clear_maininput_btn_clicked();
+
+    void on_sqr_btn_clicked();
+
+    void on_inverse_btn_clicked();
+
+    void on_sqrt_btn_clicked();
 
 private:
     Ui::Widget *ui;
